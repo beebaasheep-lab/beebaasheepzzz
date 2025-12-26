@@ -1,0 +1,14 @@
+---
+layout: default
+---
+
+<article class="post">
+    <h1>{{ page.title }}</h1>
+    <time>{{ page.date | date: "%Y年%m月%d日" }}</time>
+    
+    <div class="content">
+        {{ content }}
+    </div>
+</article>
+
+<a href="{{ '/' | relative_url }}" class="back-link">← 回到首頁</a>
