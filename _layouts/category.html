@@ -67,15 +67,28 @@ layout: default
     
     <!-- 文章列表 -->
     <h3 style="margin-top: 60px;">📝 相關文章</h3>
-    <div class="posts-grid">
-        {% for post in site.categories[page.category] %}
-        <div class="post-card">
-            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-            <time>{{ post.date | date: "%Y年%m月%d日" }}</time>
-            {% if post.excerpt %}
-            <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
-            {% endif %}
+<div class="posts-grid">
+    {% for post in site.categories[page.category] %}
+    <div class="post-card">
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <time>{{ post.date | date: "%Y年%m月%d日" }}</time>
+        {% if post.categories.size > 0 %}
+        <span class="category-tag">{{ post.categories | first }}</span>
+        {% endif %}
+        
+        {% if post.tags.size > 0 %}
+        <div class="tags">
+            {% for tag in post.tags %}
+            <span class="tag" data-tag="{{ tag }}">#{{ tag }}</span>
+            {% endfor %}
         </div>
-        {% endfor %}
+        {% endif %}
+        
+        {% if post.excerpt %}
+        <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
     </div>
 </div>

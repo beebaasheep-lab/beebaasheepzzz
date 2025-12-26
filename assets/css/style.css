@@ -494,3 +494,35 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* 搜索高亮 */
+mark {
+    background: #fff59d;
+    padding: 2px 4px;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+/* Tag 點擊效果 */
+.tag {
+    cursor: pointer;
+}
+
+.tag:active {
+    transform: scale(0.95);
+}
+
+/* 搜索結果容器 */
+#searchResults {
+    margin-bottom: 40px;
+}
+
+#searchResults h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#searchResults p {
+    color: #666;
+    margin-bottom: 20px;
+}
