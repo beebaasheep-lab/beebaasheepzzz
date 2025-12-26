@@ -220,3 +220,144 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+/* 首頁自我介紹 */
+.intro-section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 40px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 12px;
+    margin-bottom: 40px;
+}
+
+.intro-avatar img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.intro-text h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.8em;
+}
+
+.intro-text p {
+    margin: 8px 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* 區塊標題 */
+section h2 {
+    font-size: 1.5em;
+    margin: 40px 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #2c7bb6;
+    display: inline-block;
+}
+
+/* 最近更新 - 小網格 */
+.posts-grid-mini {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* 近期目標 */
+.goals-list {
+    list-style: none;
+    padding: 0;
+}
+
+.goals-list li {
+    padding: 15px 20px;
+    margin: 10px 0;
+    background: #f8f9fa;
+    border-left: 4px solid #2c7bb6;
+    border-radius: 4px;
+}
+
+.goals-list li:hover {
+    background: #e9ecef;
+}
+
+/* 探索分類卡片 */
+.category-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.category-card {
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.category-card.art {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.category-card.thinking {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.category-card.daily {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.category-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.3em;
+}
+
+.category-card p {
+    margin: 0;
+    opacity: 0.9;
+    font-size: 0.9em;
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+    .intro-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .posts-grid-mini,
+    .category-cards {
+        grid-template-columns: 1fr;
+    }
+}
+/* 麵包屑導航 */
+.breadcrumb {
+    margin-bottom: 20px;
+    font-size: 0.95em;
+}
+
+.breadcrumb a {
+    color: #2c7bb6;
+    text-decoration: none;
+    padding: 8px 12px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.breadcrumb a:hover {
+    background: #e0e0e0;
+}

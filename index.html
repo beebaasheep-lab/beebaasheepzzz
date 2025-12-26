@@ -3,19 +3,61 @@ layout: default
 title: 首頁
 ---
 
-<h2>最新文章</h2>
-
-<div class="posts-grid">
-    {% for post in site.posts %}
-    <div class="post-card">
-        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-        <time>{{ post.date | date: "%Y年%m月%d日" }}</time>
-        {% if post.categories.size > 0 %}
-        <span class="category-tag">{{ post.categories | first }}</span>
-        {% endif %}
-        {% if post.excerpt %}
-        <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
-        {% endif %}
+<!-- 自我介紹區 -->
+<section class="intro-section">
+    <div class="intro-avatar">
+        <img src="{{ site.baseurl }}/assets/images/avatar.jpg" alt="BeeBaaSheep">
     </div>
-    {% endfor %}
-</div>
+    <div class="intro-text">
+        <h2>你好,我是 BeeBaaSheep 🐝🐑</h2>
+        <p>由好奇心和懶散心推動的蜂與羊</p>
+        <p>這裡是我的創作空間,記錄著藝術創作、思考筆記與日常探索。</p>
+        <p>歡迎來到我的多元宇宙!</p>
+    </div>
+</section>
+
+<!-- 最近更新 -->
+<section class="recent-posts">
+    <h2>✨ 最近更新</h2>
+    <div class="posts-grid-mini">
+        {% for post in site.posts limit:3 %}
+        <div class="post-card">
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+            <time>{{ post.date | date: "%Y年%m月%d日" }}</time>
+            {% if post.categories.size > 0 %}
+            <span class="category-tag">{{ post.categories | first }}</span>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- 近期目標 -->
+<section class="goals-section">
+    <h2>🎯 近期目標</h2>
+    <ul class="goals-list">
+        <li>完成角色設定集第一章</li>
+        <li>學習 3D 建模基礎</li>
+        <li>閱讀《藝術哲學》並寫筆記</li>
+        <li>建立完整的世界觀文檔</li>
+    </ul>
+</section>
+
+<!-- 探索分類 -->
+<section class="explore-categories">
+    <h2>📚 探索分類</h2>
+    <div class="category-cards">
+        <a href="{{ site.baseurl }}/categories/創作格子" class="category-card art">
+            <h3>🎨 藝術</h3>
+            <p>創作格子 / 技術開發</p>
+        </a>
+        <a href="{{ site.baseurl }}/categories/哲學" class="category-card thinking">
+            <h3>💭 思考</h3>
+            <p>哲學 / 歷史 / 讀書</p>
+        </a>
+        <a href="{{ site.baseurl }}/categories/雜項" class="category-card daily">
+            <h3>📝 日常</h3>
+            <p>生活記錄與雜想</p>
+        </a>
+    </div>
+</section>
