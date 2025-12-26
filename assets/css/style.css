@@ -1,3 +1,4 @@
+/* ===== 基礎設定 ===== */
 * {
     margin: 0;
     padding: 0;
@@ -8,103 +9,10 @@ body {
     font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
     line-height: 1.6;
     color: #333;
-    margin: 0;
-    padding: 0;
+    background: #fafafa;
 }
 
-header {
-    text-align: center;
-    padding: 40px 0;
-    border-bottom: 2px solid #eee;
-    margin-bottom: 40px;
-}
-
-header h1 a {
-    color: #333;
-    text-decoration: none;
-    font-size: 2em;
-}
-
-header p {
-    color: #666;
-    margin-top: 10px;
-}
-
-/* 網格排列 */
-.posts-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.post-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px;
-    background: #fff;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.post-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.post-card h2 {
-    margin-bottom: 10px;
-}
-
-.post-card h2 a {
-    color: #2c7bb6;
-    text-decoration: none;
-}
-
-.post-card h2 a:hover {
-    text-decoration: underline;
-}
-
-.post-card time {
-    color: #999;
-    font-size: 0.9em;
-}
-
-/* 手機版 */
-@media (max-width: 768px) {
-    .posts-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* 文章頁面 */
-.post h1 {
-    margin-bottom: 10px;
-}
-
-.post time {
-    color: #999;
-    display: block;
-    margin-bottom: 30px;
-}
-
-.content {
-    line-height: 1.8;
-}
-
-.back-link {
-    display: inline-block;
-    margin-top: 40px;
-    color: #2c7bb6;
-    text-decoration: none;
-}
-
-footer {
-    text-align: center;
-    margin-top: 60px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-    color: #999;
-}
-/* 容器布局 */
+/* ===== 整體容器 ===== */
 .container {
     display: flex;
     max-width: 1400px;
@@ -113,7 +21,7 @@ footer {
     gap: 30px;
 }
 
-/* 左側邊欄 */
+/* ===== 左側邊欄 ===== */
 .sidebar-left {
     width: 250px;
     flex-shrink: 0;
@@ -125,16 +33,24 @@ footer {
     border-bottom: 2px solid #eee;
 }
 
+.site-info h2 {
+    margin-bottom: 10px;
+}
+
 .site-info h2 a {
     color: #333;
     text-decoration: none;
     font-size: 1.5em;
 }
 
+.site-info h2 a:hover {
+    color: #2c7bb6;
+}
+
 .site-info p {
     color: #666;
-    margin-top: 10px;
     font-size: 0.9em;
+    margin-top: 5px;
 }
 
 /* 分類導航 */
@@ -157,7 +73,6 @@ footer {
 .category-group ul {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
 .category-group li {
@@ -177,49 +92,17 @@ footer {
     background: #f0f0f0;
 }
 
-/* 主要內容區 */
+/* ===== 主要內容區 ===== */
 .main-content {
     flex: 1;
     min-width: 0;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-.main-content header {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 2px solid #eee;
-}
-
-.main-content header h1 {
-    margin: 0;
-    font-size: 2em;
-}
-
-/* 分類標籤 */
-.category-tag {
-    display: inline-block;
-    background: #e3f2fd;
-    color: #1976d2;
-    padding: 3px 10px;
-    border-radius: 12px;
-    font-size: 0.85em;
-    margin-left: 10px;
-}
-
-/* 手機版 */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-    
-    .sidebar-left {
-        width: 100%;
-    }
-    
-    .posts-grid {
-        grid-template-columns: 1fr;
-    }
-}
-/* 首頁自我介紹 */
+/* ===== 首頁自我介紹 ===== */
 .intro-section {
     display: flex;
     align-items: center;
@@ -237,6 +120,7 @@ footer {
     object-fit: cover;
     border: 4px solid white;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    flex-shrink: 0;
 }
 
 .intro-text h2 {
@@ -247,10 +131,9 @@ footer {
 .intro-text p {
     margin: 8px 0;
     color: #555;
-    line-height: 1.6;
 }
 
-/* 區塊標題 */
+/* ===== 區塊標題 ===== */
 section h2 {
     font-size: 1.5em;
     margin: 40px 0 20px 0;
@@ -259,18 +142,84 @@ section h2 {
     display: inline-block;
 }
 
-/* 最近更新 - 小網格 */
+section:first-of-type h2 {
+    margin-top: 0;
+}
+
+/* ===== 文章網格 ===== */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
 .posts-grid-mini {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    margin-bottom: 40px;
+    margin: 20px 0 40px 0;
 }
 
-/* 近期目標 */
+.post-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    background: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.post-card h2,
+.post-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.post-card h2 a,
+.post-card h3 a {
+    color: #2c7bb6;
+    text-decoration: none;
+}
+
+.post-card h2 a:hover,
+.post-card h3 a:hover {
+    text-decoration: underline;
+}
+
+.post-card time {
+    color: #999;
+    font-size: 0.9em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.post-card p {
+    color: #666;
+    font-size: 0.95em;
+    margin-top: 10px;
+}
+
+/* 分類標籤 */
+.category-tag {
+    display: inline-block;
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 0.85em;
+    margin: 10px 0;
+}
+
+/* ===== 近期目標 ===== */
 .goals-list {
     list-style: none;
     padding: 0;
+    margin: 20px 0 40px 0;
 }
 
 .goals-list li {
@@ -279,18 +228,19 @@ section h2 {
     background: #f8f9fa;
     border-left: 4px solid #2c7bb6;
     border-radius: 4px;
+    transition: background 0.2s;
 }
 
 .goals-list li:hover {
     background: #e9ecef;
 }
 
-/* 探索分類卡片 */
+/* ===== 探索分類卡片 ===== */
 .category-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    margin-bottom: 40px;
+    margin: 20px 0 40px 0;
 }
 
 .category-card {
@@ -330,13 +280,87 @@ section h2 {
     font-size: 0.9em;
 }
 
-/* 手機版 */
+/* ===== 麵包屑導航 ===== */
+.breadcrumb {
+    margin-bottom: 20px;
+    font-size: 0.95em;
+}
+
+.breadcrumb a {
+    color: #2c7bb6;
+    text-decoration: none;
+    padding: 8px 12px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.breadcrumb a:hover {
+    background: #e0e0e0;
+}
+
+/* ===== 文章頁面 ===== */
+.post h1 {
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+
+.post time {
+    color: #999;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.content {
+    line-height: 1.8;
+    margin-top: 30px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 40px;
+    color: #2c7bb6;
+    text-decoration: none;
+    padding: 8px 12px;
+    background: #f0f0f0;
+    border-radius: 4px;
+}
+
+.back-link:hover {
+    background: #e0e0e0;
+}
+
+/* ===== 頁腳 ===== */
+footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    color: #999;
+    font-size: 0.9em;
+}
+
+/* ===== 響應式設計 ===== */
 @media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar-left {
+        width: 100%;
+    }
+    
+    .main-content {
+        padding: 20px;
+    }
+    
     .intro-section {
         flex-direction: column;
         text-align: center;
+        padding: 30px 20px;
     }
     
+    .posts-grid,
     .posts-grid-mini,
     .category-cards {
         grid-template-columns: 1fr;
