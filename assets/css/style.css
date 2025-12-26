@@ -405,67 +405,81 @@ footer {
         grid-template-columns: 1fr;
     }
 }
-/* ===== 8格任務 ===== */
-.tasks-grid-section {
+/* ===== 思考格子 ===== */
+.thinking-grid-section {
     margin: 30px 0 60px 0;
 }
 
-.tasks-grid-section h3 {
+.thinking-grid-section h3 {
     font-size: 1.3em;
     margin-bottom: 10px;
 }
 
-.tasks-description {
+.grid-description {
     color: #666;
     font-size: 0.95em;
     margin-bottom: 20px;
 }
 
-.tasks-grid {
+.thinking-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 15px;
 }
 
-.task-card {
+.grid-card {
     position: relative;
-    border: 2px solid #333;
+    border: 2px solid #d0d0d0;
     border-radius: 8px;
     padding: 20px;
     min-height: 150px;
-    background: white;
-    transition: transform 0.2s, box-shadow 0.2s;
+    background: #fafafa;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
-.task-card:hover {
+.grid-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-color: #2c7bb6;
 }
 
-.task-number {
+.grid-number {
     position: absolute;
     top: 10px;
     left: 10px;
-    width: 30px;
-    height: 30px;
-    background: #333;
+    width: 28px;
+    height: 28px;
+    background: #666;
     color: white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 0.9em;
+    font-size: 0.85em;
 }
 
-.task-content {
+.grid-content {
     margin-top: 40px;
 }
 
-.task-content p {
-    color: #666;
+.grid-content p {
+    color: #888;
     font-size: 0.95em;
     line-height: 1.5;
+}
+
+/* 響應式 */
+@media (max-width: 1024px) {
+    .thinking-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .thinking-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* 響應式 */
