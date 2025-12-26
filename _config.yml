@@ -1,15 +1,17 @@
 title: BeeBaaSheep-Lab
 description: 由好奇心和懶散心推動的蜂與羊
 url: "https://beebaasheep-lab.github.io"
-baseurl: ""
+baseurl: "/beebaasheepzzz"
 
 # 作者資訊
 author:
   name: BeeBaaSheep
 
-# 設定
+# Jekyll 設定
 markdown: kramdown
 permalink: /:year/:month/:day/:title/
+plugins:
+  - jekyll-relative-links
 
 # 排除不需要的檔案
 exclude:
