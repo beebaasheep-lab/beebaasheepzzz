@@ -8,9 +8,8 @@ body {
     font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
     line-height: 1.6;
     color: #333;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 header {
@@ -342,22 +341,4 @@ section h2 {
     .category-cards {
         grid-template-columns: 1fr;
     }
-}
-/* 麵包屑導航 */
-.breadcrumb {
-    margin-bottom: 20px;
-    font-size: 0.95em;
-}
-
-.breadcrumb a {
-    color: #2c7bb6;
-    text-decoration: none;
-    padding: 8px 12px;
-    background: #f0f0f0;
-    border-radius: 4px;
-    display: inline-block;
-}
-
-.breadcrumb a:hover {
-    background: #e0e0e0;
 }
