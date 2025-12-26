@@ -8,6 +8,7 @@ title: 首頁
     <div class="post-card">
         <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
         <time>{{ post.date | date: "%Y年%m月%d日" }}</time>
+        <span class="category-tag">{{ post.categories | first }}</span>
         {% if post.excerpt %}
         <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
         {% endif %}
