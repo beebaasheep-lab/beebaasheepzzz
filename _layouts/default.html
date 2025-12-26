@@ -9,40 +9,46 @@
 <body>
     <div class="container">
         <!-- 左側邊欄 -->
-        <aside class="sidebar-left">
-            <div class="site-info">
-                <h2><a href="{{ site.baseurl }}/">{{ site.title }}</a></h2>
-                <p>{{ site.description }}</p>
-            </div>
-            
-            <nav class="categories">
-                <h3>分類</h3>
-                
-                <div class="category-group">
-                    <h4>📁 藝術</h4>
-                    <ul>
-                        <li><a href="{{ site.baseurl }}/categories/創作格子">創作格子</a></li>
-                        <li><a href="{{ site.baseurl }}/categories/技術開發">技術開發</a></li>
-                    </ul>
-                </div>
-                
-                <div class="category-group">
-                    <h4>📁 學習思維</h4>
-                    <ul>
-                        <li><a href="{{ site.baseurl }}/categories/哲思筆記">哲思筆記</a></li>
-                        <li><a href="{{ site.baseurl }}/categories/知識探索">知識探索</a></li>
-                    </ul>
-                </div>
-                
-               <div class="category-group">
-    <h4>📁 日常</h4>
-    <ul>
-        <li><a href="{{ site.baseurl }}/categories/雜項">雜項</a></li>
-        <li><a href="{{ site.baseurl }}/categories/生活運作">生活運作</a></li>
-    </ul>
-</div>
-            </nav>
-        </aside>
+    <aside class="sidebar-left">
+    <div class="site-info">
+        <h2><a href="{{ site.baseurl }}/">{{ site.title }}</a></h2>
+        <p>{{ site.description }}</p>
+    </div>
+    
+    <!-- 搜索框 -->
+    <div class="search-box">
+        <h3>🔍 搜索</h3>
+        <input type="text" id="searchInput" placeholder="輸入標籤或關鍵字...">
+    </div>
+    
+    <nav class="categories">
+        <h3>分類</h3>
+        
+        <div class="category-group">
+            <h4>📁 藝術</h4>
+            <ul>
+                <li><a href="{{ site.baseurl }}/categories/創作格子">創作格子</a></li>
+                <li><a href="{{ site.baseurl }}/categories/技術開發">技術開發</a></li>
+            </ul>
+        </div>
+        
+        <div class="category-group">
+            <h4>📁 學習思維</h4>
+            <ul>
+                <li><a href="{{ site.baseurl }}/categories/哲思筆記">哲思筆記</a></li>
+                <li><a href="{{ site.baseurl }}/categories/知識探索">知識探索</a></li>
+            </ul>
+        </div>
+        
+        <div class="category-group">
+            <h4>📁 日常</h4>
+            <ul>
+                <li><a href="{{ site.baseurl }}/categories/雜項">雜項</a></li>
+                <li><a href="{{ site.baseurl }}/categories/生活運作">生活運作</a></li>
+            </ul>
+        </div>
+    </nav>
+</aside>
         
         <!-- 主要內容區 -->
         <main class="main-content">
