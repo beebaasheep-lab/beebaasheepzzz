@@ -405,3 +405,78 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+/* ===== 8格任務 ===== */
+.tasks-grid-section {
+    margin: 30px 0 60px 0;
+}
+
+.tasks-grid-section h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.tasks-description {
+    color: #666;
+    font-size: 0.95em;
+    margin-bottom: 20px;
+}
+
+.tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.task-card {
+    position: relative;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 150px;
+    background: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.task-number {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    background: #333;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.task-content {
+    margin-top: 40px;
+}
+
+.task-content p {
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+/* 響應式 */
+@media (max-width: 1024px) {
+    .tasks-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .tasks-grid {
+        grid-template-columns: 1fr;
+    }
+}

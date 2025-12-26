@@ -9,6 +9,64 @@ layout: default
 <div class="category-page">
     <h2>分類: {{ page.category }}</h2>
     
+    <!-- 8格任務區 -->
+    <section class="tasks-grid-section">
+        <h3>📋 8格任務</h3>
+        <p class="tasks-description">未來考慮做的事記錄</p>
+        <div class="tasks-grid">
+            <div class="task-card">
+                <span class="task-number">1</span>
+                <div class="task-content">
+                    <p>任務待填...</p>
+                </div>
+            </div>
+            <div class="task-card">
+                <span class="task-number">2</span>
+                <div class="task-content">
+                    <p>任務待填...</p>
+                </div>
+            </div>
+            <div class="task-card">
+                <span class="task-number">3</span>
+                <div class="task-content">
+                    <p>任務待填...</p>
+                </div>
+            </div>
+            <div class="task-card">
+                <span class="task-number">4</span>
+                <div class="task-content">
+                    <p>任務待填...</p>
+                </div>
+            </div>
+            <div class="task-card">
+                <span class="task-number">5</span>
+                <div class="task-content">
+                    <p>任務待填...</p>
+                </div>
+            </div>
+            <div class="task-card">
+                <span class="task-number">6</span>
+                <div class="task-content">
+                    <p>任務待填...</p>
+                </div>
+            </div>
+            <div class="task-card">
+                <span class="task-number">7</span>
+                <div class="task-content">
+                    <p>任務待填...</p>
+                </div>
+            </div>
+            <div class="task-card">
+                <span class="task-number">8</span>
+                <div class="task-content">
+                    <p>任務待填...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 文章列表 -->
+    <h3 style="margin-top: 60px;">📝 相關文章</h3>
     <div class="posts-grid">
         {% for post in site.categories[page.category] %}
         <div class="post-card">
