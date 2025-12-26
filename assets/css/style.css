@@ -234,6 +234,45 @@ section:first-of-type h2 {
 .goals-list li:hover {
     background: #e9ecef;
 }
+/* 近期目標 */
+.goals-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 40px 0;
+}
+
+.goals-list li {
+    padding: 15px 20px;
+    margin: 10px 0;
+    background: #f8f9fa;
+    border-left: 4px solid #2c7bb6;
+    border-radius: 4px;
+    transition: background 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.goals-list li:hover {
+    background: #e9ecef;
+}
+
+.goal-link {
+    color: #2c7bb6;
+    text-decoration: none;
+    font-size: 0.9em;
+    padding: 4px 12px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #2c7bb6;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.goal-link:hover {
+    background: #2c7bb6;
+    color: white;
+}
 
 /* ===== 探索分類卡片 ===== */
 .category-cards {
