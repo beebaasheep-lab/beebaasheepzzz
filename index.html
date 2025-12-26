@@ -3,12 +3,16 @@ layout: default
 title: 首頁
 ---
 
+<h2>最新文章</h2>
+
 <div class="posts-grid">
     {% for post in site.posts %}
     <div class="post-card">
-        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
         <time>{{ post.date | date: "%Y年%m月%d日" }}</time>
+        {% if post.categories.size > 0 %}
         <span class="category-tag">{{ post.categories | first }}</span>
+        {% endif %}
         {% if post.excerpt %}
         <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
         {% endif %}
