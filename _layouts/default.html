@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} - {{ site.title }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 </head>
 <body>
-    <header>
-        <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-        <p>{{ site.description }}</p>
-    </header>
-
-    <main>
-        {{ content }}
-    </main>
-
-    <footer>
-        <p>&copy; 2025 BeeBaaSheep</p>
-    </footer>
-</body>
-</html>
+    <div class="container">
+        <!-- 左側邊欄 -->
+        <aside class="sidebar-left">
+            <div class="site-info">
+                <h2><a href="{{ site.baseurl }}/">{{ site.title }}</a></h2>
+                <p>{{ site.description }}</p>
+            </div>
+            
+            <nav class="categories">
+                <h3>分類</h3>
+                
+                <div class="category-group">
+                    <h4>📁 藝術</h4>
+                    <ul>
+                        <li><a href="{{ site.baseurl }}/categories/創作格子">創作格子</a></li>
+                        <li><a href="{{ site.baseurl }}/categories/技術開發">技術開發</a></li>
+                    </ul>
+                </div>

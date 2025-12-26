@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<div class="category-page">
+    <h2>分類: {{ page.category }}</h2>
+    
+    <div class="posts-grid">
+        {% for post in site.categories[page.category] %}
+        <div class="post-card">
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+            <time>{{ post.date | date: "%Y年%m月%d日" }}</time>
+            {% if post.excerpt %}
+            <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
