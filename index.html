@@ -1,2 +1,16 @@
-<h1>測試成功!</h1>
-<p>BeeBaaSheep-Lab 網站</p>
+---
+layout: default
+title: 首頁
+---
+
+<div class="posts-grid">
+    {% for post in site.posts %}
+    <div class="post-card">
+        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <time>{{ post.date | date: "%Y年%m月%d日" }}</time>
+        {% if post.excerpt %}
+        <p>{{ post.excerpt | strip_html | truncate: 100 }}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
