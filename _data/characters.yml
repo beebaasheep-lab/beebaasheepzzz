@@ -2,70 +2,53 @@
   name: "櫻井美咲"
   name_en: "Sakurai Misaki"
   series: "魔法少女最強的敵人是最弱"
-  faction: "魔法少女組織"
   tagline: "雙重人格的治療系魔法少女"
   image: ""
-  tags: ["魔法少女", "治療系", "雙重人格"]
   reference_era: ""
-  related_images: []
-  related_posts: []
 
 - id: "MG-A-02"
   name: "高橋蒼"
   name_en: "Takahashi Ao"
   series: "魔法少女最強的敵人是最弱"
-  faction: "魔法少女組織"
   tagline: "理性冷靜的隊長"
   image: ""
-  tags: ["魔法少女", "領導者", "戰術"]
   reference_era: ""
-  related_images: []
-  related_posts: []
 
 - id: "MG-A-03"
   name: "田中翠"
   name_en: "Tanaka Midori"
   series: "魔法少女最強的敵人是最弱"
-  faction: "魔法少女組織"
   tagline: "溫柔善良的自然系魔法少女"
   image: ""
-  tags: ["魔法少女", "自然系", "輔助"]
   reference_era: ""
-  related_images: []
-  related_posts: []
 
 - id: "MG-A-04"
   name: "山田橙花"
   name_en: "Yamada Touka"
   series: "魔法少女最強的敵人是最弱"
-  faction: "魔法少女組織"
   tagline: "熱血正義的火焰戰士"
   image: ""
-  tags: ["魔法少女", "火焰系", "近戰"]
   reference_era: ""
-  related_images: []
-  related_posts: []
 
 - id: "MG-A-05"
   name: "星星"
   name_en: "Star"
   series: "魔法少女最強的敵人是最弱"
-  faction: "魔法少女組織"
   tagline: "經歷創傷的吉祥物"
   image: ""
-  tags: ["吉祥物", "支援"]
   reference_era: "活了50多年"
-  related_images: []
-  related_posts: []
 
 - id: "MG-B-01"
   name: "櫻井健一"
   name_en: "Sakurai Kenichi"
   series: "魔法少女最強的敵人是最弱"
-  faction: "暗影教團"
   tagline: "活了近200年的傳奇怪物"
   image: ""
-  tags: ["擬態怪物", "潛伏者", "千面"]
   reference_era: "1828年至今"
-  related_images: []
-  related_posts: []
+
+# 之後新增其他世界觀的角色,只要改 series 就好
+# - id: "XX-01"
+#   name: "角色名字"
+#   series: "世界觀2"
+#   tagline: "簡介"
+#   image: ""

@@ -7,26 +7,28 @@ layout: default
 </div>
 
 <div class="character-gallery-page">
-    <h2>🎭 角色圖鑑 - {{ site.data.characters[0].series }}</h2>
+    <h2>🎭 角色圖鑑</h2>
     
-    <!-- 陣營篩選按鈕 -->
-    <div class="faction-filters">
-        <button class="filter-btn active" data-faction="all">全部</button>
-        <button class="filter-btn" data-faction="魔法少女組織">魔法少女</button>
-        <button class="filter-btn" data-faction="暗影教團">暗影教團</button>
-        <button class="filter-btn" data-faction="其他">其他</button>
+    <!-- 世界觀篩選按鈕 -->
+    <div class="series-filters">
+        <button class="filter-btn active" data-series="all">全部</button>
+        <!-- 自動生成世界觀按鈕 -->
+        {% assign all_series = site.data.characters | map: "series" | uniq %}
+        {% for series in all_series %}
+        <button class="filter-btn" data-series="{{ series }}">{{ series }}</button>
+        {% endfor %}
     </div>
     
     <!-- 角色卡片網格 -->
     <div class="characters-grid">
         {% for character in site.data.characters %}
-        <div class="character-card" data-faction="{{ character.faction }}" data-id="{{ character.id }}">
+        <div class="character-card" data-series="{{ character.series }}" data-id="{{ character.id }}">
             <div class="character-image">
                 {% if character.image != "" %}
                 <img src="{{ site.baseurl }}/assets/images/characters/{{ character.image }}" alt="{{ character.name }}">
                 {% else %}
                 <div class="placeholder-silhouette">
-                    <img src="{{ site.baseurl }}/assets/images/characters/placeholder.png" alt="角色佔位圖" style="width: 80%; height: auto;">
+                    <img src="{{ site.baseurl }}/assets/images/characters/placeholder.png" alt="角色佔位圖">
                 </div>
                 {% endif %}
             </div>
@@ -49,25 +51,20 @@ layout: default
             <div class="modal-right">
                 <h3 id="modalId"></h3>
                 <h2 id="modalName"></h2>
+                <p id="modalNameEn"></p>
                 <p id="modalTagline"></p>
                 <div class="modal-info">
-                    <p><strong>陣營:</strong> <span id="modalFaction"></span></p>
+                    <p><strong>系列:</strong> <span id="modalSeries"></span></p>
                     <p id="modalEra"></p>
-                    <div id="modalTags"></div>
-                </div>
-                <div class="modal-images">
-                    <h4>相關創作:</h4>
-                    <div id="modalRelatedImages"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- 角色資料 (隱藏的 JSON) -->
+<!-- 角色資料 -->
 <script type="application/json" id="characters-data" data-baseurl="{{ site.baseurl }}">
 {{ site.data.characters | jsonify }}
 </script>
 
-<!-- 載入外部 JavaScript -->
 <script src="{{ site.baseurl }}/assets/js/character-gallery.js"></script>
