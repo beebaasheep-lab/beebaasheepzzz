@@ -1,0 +1,161 @@
+---
+layout: default
+---
+
+<div class="breadcrumb">
+    <a href="{{ site.baseurl }}/">← 回到首頁</a>
+</div>
+
+<div class="character-gallery-page">
+    <h2>🎭 角色圖鑑 - {{ site.data.characters[0].series }}</h2>
+    
+    <!-- 陣營篩選按鈕 -->
+    <div class="faction-filters">
+        <button class="filter-btn active" data-faction="all">全部</button>
+        <button class="filter-btn" data-faction="魔法少女組織">魔法少女</button>
+        <button class="filter-btn" data-faction="暗影教團">暗影教團</button>
+        <button class="filter-btn" data-faction="其他">其他</button>
+    </div>
+    
+    <!-- 角色卡片網格 -->
+    <div class="characters-grid">
+        {% for character in site.data.characters %}
+        <div class="character-card" data-faction="{{ character.faction }}" data-id="{{ character.id }}">
+            <div class="character-image">
+                {% if character.image != "" %}
+                <img src="{{ site.baseurl }}/assets/images/characters/{{ character.image }}" alt="{{ character.name }}">
+                {% else %}
+                <div class="placeholder-silhouette">
+                    <span>?</span>
+                </div>
+                {% endif %}
+            </div>
+            <div class="character-id">{{ character.id }}</div>
+            <div class="character-name">{{ character.name }}</div>
+            <div class="character-tagline">「{{ character.tagline }}」</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- 彈出視窗 -->
+<div id="characterModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-body">
+            <div class="modal-left">
+                <div id="modalImage"></div>
+            </div>
+            <div class="modal-right">
+                <h3 id="modalId"></h3>
+                <h2 id="modalName"></h2>
+                <p id="modalTagline"></p>
+                <div class="modal-info">
+                    <p><strong>陣營:</strong> <span id="modalFaction"></span></p>
+                    <p id="modalEra"></p>
+                    <div id="modalTags"></div>
+                </div>
+                <div class="modal-images">
+                    <h4>相關創作:</h4>
+                    <div id="modalRelatedImages"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// 角色資料
+const characters = {{ site.data.characters | jsonify }};
+
+// 陣營篩選
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        // 切換 active 狀態
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        const faction = this.getAttribute('data-faction');
+        const cards = document.querySelectorAll('.character-card');
+        
+        cards.forEach(card => {
+            if (faction === 'all' || card.getAttribute('data-faction') === faction) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+
+// 點擊角色卡片打開彈出視窗
+document.querySelectorAll('.character-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const id = this.getAttribute('data-id');
+        const character = characters.find(c => c.id === id);
+        openModal(character);
+    });
+});
+
+// 打開彈出視窗
+function openModal(character) {
+    const modal = document.getElementById('characterModal');
+    
+    // 填充圖片
+    const modalImage = document.getElementById('modalImage');
+    if (character.image) {
+        modalImage.innerHTML = `<img src="{{ site.baseurl }}/assets/images/characters/${character.image}" alt="${character.name}">`;
+    } else {
+        modalImage.innerHTML = '<div class="placeholder-silhouette-large"><span>?</span></div>';
+    }
+    
+    // 填充基本資料
+    document.getElementById('modalId').textContent = character.id;
+    document.getElementById('modalName').textContent = character.name;
+    document.getElementById('modalTagline').textContent = `「${character.tagline}」`;
+    document.getElementById('modalFaction').textContent = character.faction;
+    
+    // 參考史實
+    const eraElement = document.getElementById('modalEra');
+    if (character.reference_era) {
+        eraElement.innerHTML = `<strong>參考史實:</strong> ${character.reference_era}`;
+        eraElement.style.display = 'block';
+    } else {
+        eraElement.style.display = 'none';
+    }
+    
+    // 標籤
+    const tagsElement = document.getElementById('modalTags');
+    if (character.tags && character.tags.length > 0) {
+        tagsElement.innerHTML = character.tags.map(tag => 
+            `<span class="tag">#${tag}</span>`
+        ).join('');
+    } else {
+        tagsElement.innerHTML = '';
+    }
+    
+    // 相關圖片
+    const relatedImagesElement = document.getElementById('modalRelatedImages');
+    if (character.related_images && character.related_images.length > 0) {
+        relatedImagesElement.innerHTML = character.related_images.map(img => 
+            `<img src="{{ site.baseurl }}/assets/images/${img}" alt="相關創作">`
+        ).join('');
+    } else {
+        relatedImagesElement.innerHTML = '<p style="color: #999;">尚未新增相關創作</p>';
+    }
+    
+    modal.style.display = 'block';
+}
+
+// 關閉彈出視窗
+document.querySelector('.close').addEventListener('click', function() {
+    document.getElementById('characterModal').style.display = 'none';
+});
+
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('characterModal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+</script>
