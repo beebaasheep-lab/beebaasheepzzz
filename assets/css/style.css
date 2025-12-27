@@ -606,3 +606,135 @@ mark {
         grid-template-columns: repeat(2, 1fr);  /* 手機 2 個 */
     }
 }
+
+/* ===== 彈出視窗 ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 900px;
+    position: relative;
+    animation: slideIn 0.3s;
+    z-index: 10000;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 2em;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.modal-body {
+    display: flex;
+    padding: 40px;
+    gap: 30px;
+}
+
+.modal-left {
+    flex: 0 0 300px;
+}
+
+.modal-left img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.placeholder-silhouette-large {
+    width: 300px;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e0e0e0 0%, #c0c0c0 100%);
+    border-radius: 8px;
+}
+
+.placeholder-silhouette-large img {
+    width: 70%;
+    height: auto;
+    object-fit: contain;
+}
+
+.modal-right {
+    flex: 1;
+}
+
+.modal-right h3 {
+    font-size: 1em;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.modal-right h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.modal-right > p {
+    font-size: 1.1em;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.modal-info {
+    margin-bottom: 30px;
+}
+
+.modal-info p {
+    margin: 10px 0;
+    color: #555;
+}
+
+/* 響應式 */
+@media (max-width: 768px) {
+    .modal-body {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .modal-left {
+        flex: none;
+        width: 100%;
+    }
+    
+    .placeholder-silhouette-large {
+        width: 100%;
+        height: 300px;
+    }
+}
